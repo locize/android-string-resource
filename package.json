@@ -1,0 +1,32 @@
+{
+  "name": "android-string-resource",
+  "version": "0.9.0",
+  "description": "asr2js and js2asr converter android string resource utils",
+  "main": "index.js",
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "dependencies": {
+    "rdotjson": "0.1.2",
+    "xml2js": "0.4.17"
+  },
+  "devDependencies": {
+    "eslint": "^3.18.0",
+    "expect.js": "^0.3.1",
+    "mocha": "^3.2.0"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "test": "npm run lint && mocha test"
+  },
+  "keywords": [
+    "android",
+    "string",
+    "resource",
+    "json",
+    "js",
+    "translation"
+  ],
+  "author": "adrai",
+  "license": "MIT"
+}
