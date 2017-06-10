@@ -25,7 +25,8 @@
     "resource",
     "json",
     "js",
-    "translation"
+    "translation",
+    "converter"
   ],
   "author": "adrai",
   "license": "MIT"
