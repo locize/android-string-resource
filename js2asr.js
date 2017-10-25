@@ -9,25 +9,56 @@ function js2asr(resources, opt, cb) {
 
   const builder = new xml2js.Builder({
     rootName: 'resources',
-    headless: true,
+    headless: false,
     pretty: opt.pretty,
     indent: opt.indent || ' ',
-    newline: opt.newline || '\n'
+    newline: opt.newline || '\n',
+    xmldec: { version: '1.0', encoding: 'utf-8' }
   });
 
   const asrJs = {
     $: {},
-    string: []
+    string: [],
+    'string-array': []
   };
 
   Object.keys(resources).forEach((key) => {
-    const str = {
-      $: {
-        name: key
-      },
-      _: resources[key]
-    };
-    asrJs.string.push(str);
+    if (typeof resources[key] !== 'string' && Array.isArray(resources[key])) {
+      const arr = {
+        $: {
+          name: key
+        },
+        item: resources[key]
+      };
+      asrJs['string-array'].push(arr);
+    }
+    if (typeof resources[key] === 'string') {
+      if (/\.\d+$/.test(key)) {
+        const lastDotIdx = key.lastIndexOf('.');
+        const baseKey = key.substring(0, lastDotIdx);
+        const arrIdx = key.substring(lastDotIdx + 1, key.length);
+
+        var foundBaseElement = asrJs['string-array'].find((ele) => ele.$.name === baseKey);
+        if (!foundBaseElement) {
+          foundBaseElement = {
+            $: {
+              name: baseKey
+            },
+            item: []
+          };
+          asrJs['string-array'].push(foundBaseElement);
+        }
+        foundBaseElement.item[arrIdx] = resources[key];
+      } else {
+        const str = {
+          $: {
+            name: key
+          },
+          _: resources[key]
+        };
+        asrJs.string.push(str);
+      }
+    }
   });
 
   const xml = builder.buildObject(asrJs);

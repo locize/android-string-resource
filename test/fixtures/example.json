@@ -1,5 +1,9 @@
 {
   "key1": "Hello",
   "key2": "An application to manipulate and process asr documents",
-  "key.nested": "asr Data Manager"
+  "key.nested": "asr Data Manager",
+  "planets_array.0": "Mercury",
+  "planets_array.1": "Venus",
+  "planets_array.2": "Earth",
+  "planets_array.3": "Mars"
 }
