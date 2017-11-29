@@ -10,9 +10,7 @@ function js2asr(resources, opt, cb) {
   const builder = new xml2js.Builder({
     rootName: 'resources',
     headless: false,
-    pretty: opt.pretty,
-    indent: opt.indent || ' ',
-    newline: opt.newline || '\n',
+    renderOpts: { 'pretty': opt.pretty, 'indent': opt.indent || ' ', 'newline': opt.newline || '\n' },
     xmldec: { version: '1.0', encoding: 'utf-8' }
   });
 
