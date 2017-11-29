@@ -23,3 +23,14 @@ test('js2asr', (fn) => (done) => {
     done();
   });
 });
+
+describe('js2asr with options', () => {
+  const js2asr = require('../js2asr');
+  it('it should work as expected', (done) => {
+    js2asr(fixtures.example.js, { indent: ' ' }, (err, res) => {
+      expect(err).not.to.be.ok();
+      expect(res).to.eql(fixtures.example.asr.replace(/  /g, ' '));
+      done();
+    });
+  });
+});
