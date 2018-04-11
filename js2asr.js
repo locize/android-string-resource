@@ -1,5 +1,10 @@
 const xml2js = require('xml2js');
 
+// https://developer.android.com/guide/topics/resources/string-resource.html#FormattingAndStyling
+function escape(str) {
+  return str.replace(/"/g, '\\"').replace(/'/g, "\\'");
+}
+
 function js2asr(resources, opt, cb) {
 
   if (typeof opt === 'function') {
@@ -50,13 +55,13 @@ function js2asr(resources, opt, cb) {
           };
           asrJs['string-array'].push(foundBaseElement);
         }
-        foundBaseElement.item[arrIdx] = resources[key];
+        foundBaseElement.item[arrIdx] = escape(resources[key]);
       } else {
         const str = {
           $: {
             name: key
           },
-          _: resources[key]
+          _: escape(resources[key])
         };
         asrJs.string.push(str);
       }

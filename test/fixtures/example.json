@@ -2,6 +2,7 @@
   "key1": "Hello",
   "key2": "An application to manipulate and process asr documents",
   "key.nested": "asr Data Manager",
+  "test.escape": "N' a \"iurnata\" 'e sole",
   "planets_array.0": "Mercury",
   "planets_array.1": "Venus",
   "planets_array.2": "Earth",
