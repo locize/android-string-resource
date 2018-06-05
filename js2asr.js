@@ -12,6 +12,8 @@ function js2asr(resources, opt, cb) {
     opt = { pretty: true, indent: '  ', newline: '\n' };
   }
 
+  // const resString = JSON.stringify(resources);
+
   const builder = new xml2js.Builder({
     rootName: 'resources',
     headless: false,
@@ -20,7 +22,8 @@ function js2asr(resources, opt, cb) {
       indent: opt.indent || '  ',
       newline: opt.newline || '\n'
     },
-    xmldec: { version: '1.0', encoding: 'utf-8' }
+    xmldec: { version: '1.0', encoding: 'utf-8' },
+    cdata: true//resString.indexOf('<') > -1 && resString.indexOf('>') > resString.indexOf('<')
   });
 
   const asrJs = {
