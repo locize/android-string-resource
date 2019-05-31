@@ -1,0 +1,18 @@
+{
+  "key1": {
+    "value": "Hello",
+    "comment": "hello comment"
+  },
+  "key2": "An application to manipulate and process asr documents",
+  "key.nested": "asr Data Manager",
+  "test.escape": {
+    "value": "N' a \"iurnata\" 'e sole",
+    "comment": "strange stuff"
+  },
+  "hello": "Hi <b>there</b>!",
+  "planets_array.0": "Mercury",
+  "planets_array.1": "Venus",
+  "planets_array.2": "Earth",
+  "planets_array.3": "Mars",
+  "planets_array.4": "Pluto <b>(past)</b>"
+}

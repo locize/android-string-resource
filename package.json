@@ -7,13 +7,13 @@
     "node": ">=4.0.0"
   },
   "dependencies": {
-    "rdotjson": "0.1.2",
+    "rdotjson": "1.0.0",
     "xml2js": "0.4.19"
   },
   "devDependencies": {
-    "eslint": "^4.4.1",
+    "eslint": "^5.16.0",
     "expect.js": "^0.3.1",
-    "mocha": "^5.0.5"
+    "mocha": "^6.1.4"
   },
   "scripts": {
     "lint": "eslint .",

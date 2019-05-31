@@ -32,6 +32,7 @@ function js2asr(resources, opt, cb) {
     'string-array': []
   };
 
+  const comments = [];
   Object.keys(resources).forEach((key) => {
     if (typeof resources[key] !== 'string' && Array.isArray(resources[key])) {
       const arr = {
@@ -69,9 +70,45 @@ function js2asr(resources, opt, cb) {
         asrJs.string.push(str);
       }
     }
+
+    if (typeof resources[key] === 'object' && typeof resources[key].value === 'string' && typeof resources[key].comment === 'string') {
+      if (/\.\d+$/.test(key)) {
+        const lastDotIdx = key.lastIndexOf('.');
+        const baseKey = key.substring(0, lastDotIdx);
+        const arrIdx = key.substring(lastDotIdx + 1, key.length);
+
+        var foundBaseElementWithComment = asrJs['string-array'].find((ele) => ele.$.name === baseKey);
+        if (!foundBaseElementWithComment) {
+          foundBaseElementWithComment = {
+            $: {
+              name: baseKey
+            },
+            item: []
+          };
+          asrJs['string-array'].push(foundBaseElementWithComment);
+        }
+        foundBaseElementWithComment.item[arrIdx] = escape(resources[key].value);
+      } else {
+        const str = {
+          $: {
+            name: key
+          },
+          _: escape(resources[key].value)
+        };
+        asrJs.string.push(str);
+      }
+      comments.push(key);
+    }
   });
 
-  const xml = builder.buildObject(asrJs);
+  var xml = builder.buildObject(asrJs);
+  comments.forEach((key) => {
+    const keyIndex = xml.indexOf(`name="${key}"`);
+    if (keyIndex < 0) return;
+    const indexToAppend = keyIndex + xml.substring(keyIndex).indexOf('</string>') + 9;
+    if (indexToAppend < 0) return;
+    xml = [xml.slice(0, indexToAppend), ` <!-- ${resources[key].comment} -->`, xml.slice(indexToAppend)].join('');
+  });
   if (cb) cb(null, xml);
   return xml;
 }
