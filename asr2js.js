@@ -11,6 +11,8 @@ function asrToJs(str, opt, cb) {
     opt = {};
   }
 
+  opt.attr = opt.attr !== undefined ? opt.attr : true;
+
   rdotjson(str, opt, (err, R) => {
     if (err) return cb(err);
 
@@ -21,7 +23,12 @@ function asrToJs(str, opt, cb) {
       } else {
         res[k] = R.string[k];
       }
-      if (R.string[k].comment) {
+      if (opt.comment && R.string[k].attr && R.string[k].attr.comment) {
+        res[k] = {
+          value: R.string[k].toString(),
+          comment: R.string[k].attr.comment
+        };
+      } else if (opt.comment && R.string[k].comment) {
         res[k] = {
           value: R.string[k].toString(),
           comment: R.string[k].comment

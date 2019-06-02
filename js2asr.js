@@ -12,6 +12,8 @@ function js2asr(resources, opt, cb) {
     opt = { pretty: true, indent: '  ', newline: '\n' };
   }
 
+  opt.comment = opt.comment || 'comment';
+
   // const resString = JSON.stringify(resources);
 
   const builder = new xml2js.Builder({
@@ -95,6 +97,9 @@ function js2asr(resources, opt, cb) {
           },
           _: escape(resources[key].value)
         };
+        if (opt.comment === 'attribute') {
+          str.$.comment = resources[key].comment;
+        }
         asrJs.string.push(str);
       }
       comments.push(key);
@@ -102,13 +107,15 @@ function js2asr(resources, opt, cb) {
   });
 
   var xml = builder.buildObject(asrJs);
-  comments.forEach((key) => {
-    const keyIndex = xml.indexOf(`name="${key}"`);
-    if (keyIndex < 0) return;
-    const indexToAppend = keyIndex + xml.substring(keyIndex).indexOf('</string>') + 9;
-    if (indexToAppend < 0) return;
-    xml = [xml.slice(0, indexToAppend), ` <!-- ${resources[key].comment} -->`, xml.slice(indexToAppend)].join('');
-  });
+  if (opt.comment === 'comment') {
+    comments.forEach((key) => {
+      const keyIndex = xml.indexOf(`name="${key}"`);
+      if (keyIndex < 0) return;
+      const indexToAppend = keyIndex + xml.substring(keyIndex).indexOf('</string>') + 9;
+      if (indexToAppend < 0) return;
+      xml = [xml.slice(0, indexToAppend), ` <!-- ${resources[key].comment} -->`, xml.slice(indexToAppend)].join('');
+    });
+  }
   if (cb) cb(null, xml);
   return xml;
 }

@@ -55,3 +55,25 @@ describe('js2asr with comments', () => {
     });
   });
 });
+
+describe('asr2js with comments as attribute', () => {
+  const asr2js = require('../asr2js');
+  it('it should work as expected', (done) => {
+    asr2js(fixtures.example_comment2.asr, { comment: 'right' }, (err, res) => {
+      expect(err).not.to.be.ok();
+      expect(res).to.eql(fixtures.example_comment2.js);
+      done();
+    });
+  });
+});
+
+describe('js2asr with comments as attribute', () => {
+  const js2asr = require('../js2asr');
+  it('it should work as expected', (done) => {
+    js2asr(fixtures.example_comment2.js, { comment: 'attribute' }, (err, res) => {
+      expect(err).not.to.be.ok();
+      expect(res).to.eql(fixtures.example_comment2.asr);
+      done();
+    });
+  });
+});
