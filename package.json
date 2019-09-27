@@ -11,7 +11,7 @@
     "xml2js": "0.4.22"
   },
   "devDependencies": {
-    "eslint": "^6.4.0",
+    "eslint": "^5.16.0",
     "expect.js": "^0.3.1",
     "mocha": "^6.1.4"
   },
