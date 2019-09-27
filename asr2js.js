@@ -16,6 +16,8 @@ function asrToJs(str, opt, cb) {
   rdotjson(str, opt, (err, R) => {
     if (err) return cb(err);
 
+    R.string = R.string || {};
+
     const res = {};
     Object.keys(R.string).forEach((k) => {
       if (typeof R.string[k] === 'object') {
