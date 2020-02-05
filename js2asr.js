@@ -2,7 +2,7 @@ const xml2js = require('xml2js');
 
 // https://developer.android.com/guide/topics/resources/string-resource.html#FormattingAndStyling
 function escape(str) {
-  return str.replace(/"/g, '\\"').replace(/'/g, "\\'");
+  return str.replace(/"/g, '\\"').replace(/'/g, "\\'").replace(/\n/g, '\\n');
 }
 
 function js2asr(resources, opt, cb) {
