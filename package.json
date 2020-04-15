@@ -2,22 +2,53 @@
   "name": "android-string-resource",
   "version": "1.3.1",
   "description": "asr2js and js2asr converter android string resource utils",
-  "main": "index.js",
-  "engines": {
-    "node": ">=4.0.0"
+  "type": "module",
+  "main": "./cjs/index.js",
+  "exports": {
+    ".": {
+      "require": "./cjs/index.js",
+      "default": "./lib/index.js"
+    },
+    "./asr2js": {
+      "require": "./cjs/asr2js.js",
+      "default": "./lib/asr2js.js"
+    },
+    "./js2asr": {
+      "require": "./cjs/js2asr.js",
+      "default": "./lib/js2asr.js"
+    }
   },
+  "module": "./lib/index.js",
   "dependencies": {
     "rdotjson": "1.0.3",
     "xml2js": "0.4.23"
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
-    "expect.js": "^0.3.1",
-    "mocha": "^7.0.1"
+    "@babel/cli": "7.8.4",
+    "@babel/core": "7.9.0",
+    "@babel/preset-env": "7.9.5",
+    "babel-plugin-add-module-exports": "1.0.2",
+    "browserify": "16.5.1",
+    "eslint": "6.8.0",
+    "eslint-config-standard": "14.1.1",
+    "eslint-plugin-import": "2.20.2",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-promise": "4.2.1",
+    "eslint-plugin-require-path-exists": "1.1.9",
+    "eslint-plugin-standard": "4.0.1",
+    "expect.js": "0.3.1",
+    "mocha": "7.1.1",
+    "uglify-js": "3.9.1"
   },
   "scripts": {
     "lint": "eslint .",
-    "test": "npm run lint && mocha test"
+    "compile": "rm -rf cjs && mkdir cjs && babel lib -d cjs --presets=@babel/preset-env --plugins=add-module-exports && echo '{\"type\":\"commonjs\"}' > cjs/package.json",
+    "browser": "browserify --standalone androidStringResource cjs/index.js -o androidStringResource.js && uglifyjs androidStringResource.js --compress --mangle -o androidStringResource.min.js",
+    "build_org": "npm run compile && npm run browser",
+    "build": "npm run compile",
+    "test": "npm run lint && npm run build && mocha test -R spec",
+    "preversion": "npm run test && npm run build && git push",
+    "postversion": "git push && git push --tags"
   },
   "keywords": [
     "android",

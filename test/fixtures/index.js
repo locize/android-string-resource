@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require('fs')
+const path = require('path')
 
 module.exports = {
   example: {
@@ -14,4 +14,4 @@ module.exports = {
     js: require('./example_comment.json'),
     asr: fs.readFileSync(path.join(__dirname, 'example_comment2.xml')).toString().replace(/\n$/, '')
   }
-};
+}

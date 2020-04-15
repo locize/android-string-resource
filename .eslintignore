@@ -1,0 +1,8 @@
+/build
+/node_modules
+/cjs
+/dist
+/androidStringResource.js
+/androidStringResource.min.js
+/example
+/test

@@ -10,16 +10,22 @@ Alternatively, you can install using npm:
 npm install --save android-string-resource
 ```
 
-You can then `require()` android-string-resource as normal:
+You can then `import` or `require()` android-string-resource as normal:
 
 ```js
-const android-string-resource = require('android-string-resource');
+import android from 'android-string-resource'
+// or
+const android = require('android-string-resource')
+
+android.asr2js(xml, (err, res) => {})
 ```
 
-Or you can direclty `require()` its functions:
+Or you can direclty `import` or `require()` its functions:
 
 ```js
-const asr2js = require('android-string-resource/asr2js');
+import asr2js from 'android-string-resource/asr2js'
+// or
+const asr2js = require('android-string-resource/cjs/asr2js')
 ```
 
 ## Usage
@@ -30,22 +36,32 @@ const xml = `<resources>
   <string name="key1">Hello</string>
   <string name="key2">An application to manipulate and process asr documents</string>
   <string name="key.nested">asr Data Manager</string>
-</resources>`;
+</resources>`
 
 const js = {
   "key1": "Hello",
   "key2": "An application to manipulate and process asr documents",
   "key.nested": "asr Data Manager"
-};
+}
 
-const asr2js = require('android-string-resource/asr2js');
+const asr2js = require('android-string-resource/asr2js')
 asr2js(xml, (err, res) => {
   // res is like js
-});
+})
 
-const js2asr = require('android-string-resource/js2asr');
+const js2asr = require('android-string-resource/js2asr')
 js2asr(js, (err, res) => {
   // res is like xml
-});
+})
 
+```
+
+Omitting the callback returns a promise
+
+```js
+const resJs = await asr2js(xml)
+const resXml = await js2asr(js)
+// or
+asr2js(xml).then((res) => {})
+js2asr(js).then((res) => {})
 ```
