@@ -26,7 +26,7 @@ test('js2asr', (fn) => (done) => {
 
 describe('promise', () => {
   test('asr2js', (fn) => (done) => {
-    fn(fixtures.example.asr).then((res) => {
+    fn(fixtures.example.asr, {}).then((res) => {
       expect(res).to.eql(fixtures.example.js)
       done()
     })

@@ -1,3 +1,7 @@
+### 2.0.1
+
+- fix function override
+
 ### 2.0.0
 
 - complete refactoring to make this module universal
