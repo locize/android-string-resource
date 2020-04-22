@@ -1,3 +1,7 @@
+### 2.0.2
+
+- fix export for dynamic imports
+
 ### 2.0.1
 
 - fix function override
