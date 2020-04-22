@@ -16,6 +16,15 @@
     "./js2asr": {
       "require": "./cjs/js2asr.js",
       "default": "./lib/js2asr.js"
+    },
+    "./cjs": {
+      "default": "./cjs/index.js"
+    },
+    "./cjs/asr2js": {
+      "default": "./cjs/asr2js.js"
+    },
+    "./cjs/js2asr": {
+      "default": "./cjs/js2asr.js"
     }
   },
   "module": "./lib/index.js",
