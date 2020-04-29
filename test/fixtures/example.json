@@ -8,5 +8,8 @@
   "planets_array.1": "Venus",
   "planets_array.2": "Earth",
   "planets_array.3": "Mars",
-  "planets_array.4": "Pluto <b>(past)</b>"
+  "planets_array.4": "Pluto <b>(past)</b>",
+  "numberOfSongsAvailable.one": "Znaleziono %d piosenkę.",
+  "numberOfSongsAvailable.few": "Znaleziono %d piosenki.",
+  "numberOfSongsAvailable.other": "Znaleziono %d piosenek."
 }

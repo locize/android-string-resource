@@ -12,4 +12,9 @@
     <item>Mars</item>
     <item><![CDATA[Pluto <b>(past)</b>]]></item>
   </string-array>
+  <plurals name="numberOfSongsAvailable">
+    <item quantity="one">Znaleziono %d piosenkę.</item>
+    <item quantity="few">Znaleziono %d piosenki.</item>
+    <item quantity="other">Znaleziono %d piosenek.</item>
+  </plurals>
 </resources>
