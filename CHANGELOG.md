@@ -1,3 +1,7 @@
+### 2.2.0
+
+- replace xml2js with xml-js
+
 ### 2.1.0
 
 - basic handling for <xliff:g> tags
