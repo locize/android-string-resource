@@ -13,5 +13,9 @@ module.exports = {
   example_comment2: {
     js: require('./example_comment.json'),
     asr: fs.readFileSync(path.join(__dirname, 'example_comment2.xml')).toString().replace(/\n$/, '')
+  },
+  example_xmlns: {
+    js: require('./example_xmlns.json'),
+    asr: fs.readFileSync(path.join(__dirname, 'example_xmlns.xml')).toString().replace(/\n$/, '')
   }
 }

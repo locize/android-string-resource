@@ -24,6 +24,24 @@ test('js2asr', (fn) => (done) => {
   })
 })
 
+describe('xmlns tags', () => {
+  test('asr2js', (fn) => (done) => {
+    fn(fixtures.example_xmlns.asr, (err, res) => {
+      expect(err).not.to.be.ok()
+      expect(res).to.eql(fixtures.example_xmlns.js)
+      done()
+    })
+  })
+
+  test('js2asr', (fn) => (done) => {
+    fn(fixtures.example_xmlns.js, (err, res) => {
+      expect(err).not.to.be.ok()
+      expect(res).to.eql(fixtures.example_xmlns.asr)
+      done()
+    })
+  })
+})
+
 describe('promise', () => {
   test('asr2js', (fn) => (done) => {
     fn(fixtures.example.asr, {}).then((res) => {
