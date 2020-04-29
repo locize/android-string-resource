@@ -1,3 +1,8 @@
+### 2.1.0
+
+- basic handling for <xliff:g> tags
+- plurals handling
+
 ### 2.0.3
 
 - fix export for node v14 cjs
