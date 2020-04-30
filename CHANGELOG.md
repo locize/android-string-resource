@@ -1,3 +1,7 @@
+### 2.2.1
+
+- fix xmlns:xliff attribute
+
 ### 2.2.0
 
 - replace xml2js with xml-js
