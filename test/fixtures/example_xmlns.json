@@ -6,6 +6,7 @@
   "star_rating": "Check out our 5 <xliff:g id=\"star\">\\u2605</xliff:g>",
   "star_rating2": "<xliff:g id=\"star\">\\u2605</xliff:g>\n    (stars)",
   "star_rating3": "Check out our 5 <xliff:g id=\"star\">\\u2605</xliff:g>(stars)",
+  "app_build_version": "\n    <xliff:g example=\"X.Y.Z\" id=\"app_version_number\">%s</xliff:g>\n  ",
   "planets_array.0": "Mercury",
   "planets_array.1": "Venus",
   "planets_array.2": "Earth",

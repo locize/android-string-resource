@@ -1,3 +1,7 @@
+### 2.2.2
+
+- fix detection of xliff:g
+
 ### 2.2.1
 
 - fix xmlns:xliff attribute
