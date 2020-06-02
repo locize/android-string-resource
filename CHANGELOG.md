@@ -1,3 +1,7 @@
+### 2.3.0
+
+- get rid of unnecessary CDATA
+
 ### 2.2.2
 
 - fix detection of xliff:g

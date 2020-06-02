@@ -4,12 +4,16 @@
   <string name="key2">An application to manipulate and process asr documents</string>
   <string name="key.nested">asr Data Manager</string>
   <string name="test.escape">N\' a \"iurnata\" \'e sole</string> <!-- strange stuff -->
-  <string name="hello"><![CDATA[Hi <b>there</b>!]]></string>
+  <string name="hello">Hi 
+    <b>there</b>!
+  </string>
   <string-array name="planets_array">
     <item>Mercury</item>
     <item>Venus</item>
     <item>Earth</item>
     <item>Mars</item>
-    <item><![CDATA[Pluto <b>(past)</b>]]></item>
+    <item>Pluto 
+      <b>(past)</b>
+    </item>
   </string-array>
 </resources>

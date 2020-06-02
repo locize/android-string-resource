@@ -2,6 +2,7 @@
   "key1": "Hello",
   "key2": "An application to manipulate and process asr documents",
   "key.nested": "asr\n\nData Manager",
+  "key.with.link": "Click <a href=\"https://locize.com\">here</a>",
   "test.escape": "N' a \"iurnata\" 'e sole",
   "hello": "Hi <b>there</b>!",
   "planets_array.0": "Mercury",
