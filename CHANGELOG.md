@@ -1,3 +1,7 @@
+### 2.3.1
+
+- better trim
+
 ### 2.3.0
 
 - get rid of unnecessary CDATA
