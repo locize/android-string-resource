@@ -1,3 +1,7 @@
+### 2.3.2
+
+- special handling for apos in html
+
 ### 2.3.1
 
 - better trim

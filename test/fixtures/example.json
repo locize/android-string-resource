@@ -5,6 +5,7 @@
   "key.with.link": "Click <a href=\"https://locize.com\">here</a>",
   "test.escape": "N' a \"iurnata\" 'e sole",
   "hello": "Hi <b>there</b>!",
+  "another.key": "By continuing, you agree to Jane's <a href=\"https://locize.com/privacy.html\">privacy policy</a>.",
   "planets_array.0": "Mercury",
   "planets_array.1": "Venus",
   "planets_array.2": "Earth",

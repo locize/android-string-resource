@@ -10,6 +10,9 @@
   <string name="hello">Hi 
     <b>there</b>!
   </string>
+  <string name="another.key">By continuing, you agree to Jane\'s 
+    <a href="https://locize.com/privacy.html">privacy policy</a>.
+  </string>
   <string-array name="planets_array">
     <item>Mercury</item>
     <item>Venus</item>
