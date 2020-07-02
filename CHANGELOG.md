@@ -1,3 +1,7 @@
+### 2.3.3
+
+- transpile also esm
+
 ### 2.3.2
 
 - special handling for apos in html
