@@ -1,6 +1,6 @@
 {
   "name": "android-string-resource",
-  "version": "2.3.3",
+  "version": "2.3.4",
   "description": "asr2js and js2asr converter android string resource utils",
   "type": "module",
   "main": "./cjs/index.js",
