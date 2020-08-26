@@ -1,3 +1,7 @@
+### 2.3.4
+
+- fallback for false arrays
+
 ### 2.3.3
 
 - transpile also esm

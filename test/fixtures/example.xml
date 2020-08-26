@@ -13,6 +13,7 @@
   <string name="another.key">By continuing, you agree to Jane\'s 
     <a href="https://locize.com/privacy.html">privacy policy</a>.
   </string>
+  <string name="something.2">wow</string>
   <string-array name="planets_array">
     <item>Mercury</item>
     <item>Venus</item>
