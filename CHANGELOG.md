@@ -1,3 +1,7 @@
+### 2.3.5
+
+- fix double callback invocation
+
 ### 2.3.4
 
 - fallback for false arrays
