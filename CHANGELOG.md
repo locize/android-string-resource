@@ -1,3 +1,7 @@
+### 2.3.7
+
+- fix fallback for empty string-array elements
+
 ### 2.3.6
 
 - fallback for empty string-array elements
