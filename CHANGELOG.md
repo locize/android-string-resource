@@ -1,3 +1,7 @@
+### 2.3.8
+
+- fix escaping in plurals
+
 ### 2.3.7
 
 - fix fallback for empty string-array elements

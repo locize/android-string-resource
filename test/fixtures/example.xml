@@ -13,6 +13,7 @@
   <string name="another.key">By continuing, you agree to Jane\'s 
     <a href="https://locize.com/privacy.html">privacy policy</a>.
   </string>
+  <string name="keyWithChar">%s can\'t be removed.</string>
   <string name="something.2">wow</string>
   <string-array name="planets_array">
     <item>Mercury</item>
@@ -27,5 +28,9 @@
     <item quantity="one">Znaleziono %d piosenkę.</item>
     <item quantity="few">Znaleziono %d piosenki.</item>
     <item quantity="other">Znaleziono %d piosenek.</item>
+  </plurals>
+  <plurals name="otherPlural">
+    <item quantity="one">%s cannot be removed.</item>
+    <item quantity="other">%s can\'t be removed.</item>
   </plurals>
 </resources>
