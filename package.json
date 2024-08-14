@@ -39,25 +39,25 @@
   },
   "module": "./esm/index.js",
   "dependencies": {
-    "rdotjson": "1.0.4",
+    "rdotjson": "1.1.1",
     "xml-js": "1.6.11"
   },
   "devDependencies": {
-    "@babel/cli": "7.20.7",
-    "@babel/core": "7.20.12",
-    "@babel/preset-env": "7.20.2",
+    "@babel/cli": "7.24.8",
+    "@babel/core": "7.25.2",
+    "@babel/preset-env": "7.25.3",
     "babel-plugin-add-module-exports": "1.0.4",
     "browserify": "17.0.0",
     "eslint": "8.32.0",
-    "eslint-config-standard": "17.0.0",
-    "eslint-plugin-import": "2.27.5",
+    "eslint-config-standard": "17.1.0",
+    "eslint-plugin-import": "2.29.1",
     "eslint-plugin-n": "15.6.1",
     "eslint-plugin-promise": "6.1.1",
     "eslint-plugin-require-path-exists": "1.1.9",
     "eslint-plugin-standard": "4.1.0",
     "expect.js": "0.3.1",
-    "mocha": "10.2.0",
-    "uglify-js": "3.17.4"
+    "mocha": "10.7.3",
+    "uglify-js": "3.19.2"
   },
   "scripts": {
     "lint": "eslint .",

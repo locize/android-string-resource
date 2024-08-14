@@ -1,3 +1,7 @@
+### 2.3.10
+
+- update dependencies
+
 ### 2.3.9
 
 - update dependencies
