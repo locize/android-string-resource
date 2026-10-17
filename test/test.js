@@ -136,3 +136,22 @@ describe('js2asr with a null value', () => {
     })
   })
 })
+
+describe('asr2js callback invocation', () => {
+  const asr2js = require('../cjs/asr2js')
+  it('it should invoke the callback once even if it throws', (done) => {
+    let calls = 0
+    let thrown = null
+    try {
+      asr2js('<resources><plurals name="p"><item quantity="one">%s a</item><item quantity="other">%s b</item></plurals></resources>', { comment: 'right' }, () => {
+        calls++
+        throw new Error('user callback error')
+      })
+    } catch (e) {
+      thrown = e
+    }
+    expect(thrown).to.be.ok()
+    expect(calls).to.be(1)
+    done()
+  })
+})
