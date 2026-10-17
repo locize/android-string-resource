@@ -125,3 +125,14 @@ describe('js2asr with comments on string-array items', () => {
     })
   })
 })
+
+describe('js2asr with a null value', () => {
+  const js2asr = require('../cjs/js2asr')
+  it('it should not throw', (done) => {
+    js2asr({ key1: 'Hello', keyNull: null }, { comment: 'comment' }, (err, res) => {
+      expect(err).not.to.be.ok()
+      expect(res).to.eql('<?xml version="1.0" encoding="utf-8"?>\n<resources>\n  <string name="key1">Hello</string>\n</resources>')
+      done()
+    })
+  })
+})
