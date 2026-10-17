@@ -1,3 +1,9 @@
+### 2.3.11
+
+- js2asr: a string-array whose items carry comments is written again (it was dropped, and with plurals present the output could break) [#4](https://github.com/locize/android-string-resource/pull/4)
+- js2asr: skip `null` values instead of throwing [#4](https://github.com/locize/android-string-resource/pull/4)
+- asr2js: invoke the callback only once when it throws [#4](https://github.com/locize/android-string-resource/pull/4)
+
 ### 2.3.10
 
 - update dependencies
