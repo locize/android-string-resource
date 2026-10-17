@@ -111,3 +111,17 @@ describe('js2asr with comments as attribute', () => {
     })
   })
 })
+
+describe('js2asr with comments on string-array items', () => {
+  const js2asr = require('../cjs/js2asr')
+  it('it should work as expected', (done) => {
+    js2asr({
+      'planets_array.0': { value: 'Mercury', comment: 'c0' },
+      'planets_array.1': { value: 'Venus', comment: 'c1' }
+    }, { comment: 'comment' }, (err, res) => {
+      expect(err).not.to.be.ok()
+      expect(res).to.eql('<?xml version="1.0" encoding="utf-8"?>\n<resources>\n  <string-array name="planets_array">\n    <item>Mercury</item>\n    <item>Venus</item>\n  </string-array>\n</resources>')
+      done()
+    })
+  })
+})
