@@ -165,3 +165,28 @@ describe('backslashes', () => {
     expect(await require('../').asr2js(xml)).to.eql(js)
   })
 })
+
+describe('escapes as Android reads them', () => {
+  const { js2asr, asr2js } = require('../')
+  const values = { nl: 'a\nb', tab: 'a\tb', path: 'C:\\temp', apos: "It's", quote: 'say "hi"', star: 'Star ★', nbsp: 'a\u00A0b', at: '@home', q: '?why' }
+
+  it('round-trips strings, string-arrays and plurals', async () => {
+    const js = {}
+    Object.keys(values).forEach((k) => {
+      js[`s_${k}`] = values[k]
+      js[`arr_${k}.0`] = values[k]
+      js[`pl_${k}.one`] = values[k]
+      js[`pl_${k}.other`] = values[k]
+    })
+    const xml = await js2asr(js)
+    expect(xml).to.contain('<string name="s_tab">a\\tb</string>')
+    expect(xml).to.contain('<string name="s_at">\\@home</string>')
+    expect(xml).to.contain('<string name="s_q">\\?why</string>')
+    expect(await asr2js(xml)).to.eql(js)
+  })
+
+  it('decodes hand-written \\t and \\uXXXX, keeps an escaped backslash', async () => {
+    const xml = '<resources><string name="u">Star \\u2605</string><string name="t">a\\tb</string><string name="nb">a\\u00A0b</string><string name="lit">C:\\\\u2605</string><string-array name="arr"><item>Star \\u2605</item></string-array><plurals name="p"><item quantity="one">Star \\u2605</item><item quantity="other">a\\nb \\"q\\"</item></plurals></resources>'
+    expect(await asr2js(xml)).to.eql({ u: 'Star ★', t: 'a\tb', nb: 'a\u00A0b', lit: 'C:\\u2605', 'arr.0': 'Star ★', 'p.one': 'Star ★', 'p.other': 'a\nb "q"' })
+  })
+})

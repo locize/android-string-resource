@@ -1,6 +1,9 @@
 ### 2.3.12
 
 - `js2asr`: backslashes are escaped, so a value with a backslash (a Windows path, a regex) reaches the app and survives a round trip unchanged. A value that holds a typed Android escape such as `\n` or `\u2605` is now written literally (`\\n`) and shows as such in the app; store the real character instead (a line break, ★) ([#5](https://github.com/locize/android-string-resource/pull/5), by [@Pharex38](https://github.com/Pharex38))
+- `asr2js`: `\t` and `\uXXXX` are decoded as Android decodes them (they came in as "t" and "u2605"), and a non-breaking space (and the other non-ASCII spaces) is kept instead of turning into a normal space
+- `asr2js`: plural items decode their escapes (`\n`, `\"`, `\'`, `\\`, `\uXXXX`) like strings do; they came in with the backslashes
+- `js2asr`: a tab is written as `\t`, and a value that starts with `@` or `?` is escaped (`\@`, `\?`), which Android would otherwise read as a resource or style reference
 
 ### 2.3.11
 
