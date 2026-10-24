@@ -1,3 +1,7 @@
+### 2.3.12
+
+- `js2asr`: backslashes are escaped, so a value with a backslash (a Windows path, a regex) reaches the app and survives a round trip unchanged. A value that holds a typed Android escape such as `\n` or `\u2605` is now written literally (`\\n`) and shows as such in the app; store the real character instead (a line break, ★) ([#5](https://github.com/locize/android-string-resource/pull/5), by [@Pharex38](https://github.com/Pharex38))
+
 ### 2.3.11
 
 - js2asr: a string-array whose items carry comments is written again (it was dropped, and with plurals present the output could break) [#4](https://github.com/locize/android-string-resource/pull/4)
