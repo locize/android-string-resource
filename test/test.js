@@ -155,3 +155,13 @@ describe('asr2js callback invocation', () => {
     done()
   })
 })
+
+describe('backslashes', () => {
+  const js = { path: 'C:\\temp\\new', literal: 'a\\nb', trailing: 'ends\\' }
+
+  test('js2asr', (fn) => async () => {
+    const xml = await fn(js)
+    expect(xml).to.contain('<string name="path">C:\\\\temp\\\\new</string>')
+    expect(await require('../').asr2js(xml)).to.eql(js)
+  })
+})
