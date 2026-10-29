@@ -39,7 +39,7 @@
   },
   "module": "./esm/index.js",
   "dependencies": {
-    "rdotjson": "1.1.1",
+    "rdotjson": "2.1.0",
     "xml-js": "1.6.11"
   },
   "devDependencies": {

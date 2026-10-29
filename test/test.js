@@ -189,4 +189,9 @@ describe('escapes as Android reads them', () => {
     const xml = '<resources><string name="u">Star \\u2605</string><string name="t">a\\tb</string><string name="nb">a\\u00A0b</string><string name="lit">C:\\\\u2605</string><string-array name="arr"><item>Star \\u2605</item></string-array><plurals name="p"><item quantity="one">Star \\u2605</item><item quantity="other">a\\nb \\"q\\"</item></plurals></resources>'
     expect(await asr2js(xml)).to.eql({ u: 'Star ★', t: 'a\tb', nb: 'a\u00A0b', lit: 'C:\\u2605', 'arr.0': 'Star ★', 'p.one': 'Star ★', 'p.other': 'a\nb "q"' })
   })
+
+  it('keeps a non-breaking space written as an entity, skips a string without a name', async () => {
+    const xml = '<resources><string name="km">10&#160;km</string><string>orphan</string></resources>'
+    expect(await asr2js(xml)).to.eql({ km: '10\u00A0km' })
+  })
 })

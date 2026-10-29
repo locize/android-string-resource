@@ -1,3 +1,8 @@
+### 2.4.0
+
+- `asr2js`: update rdotjson to 2.1.0, which now decodes `\t` and `\uXXXX` and keeps non-breaking spaces itself ([kawanet/rdotjson#14](https://github.com/kawanet/rdotjson/pull/14)), so the workaround from 2.3.12 is gone; a non-breaking space written as `&#160;` is kept now too, and a `<string>` without a `name` attribute is skipped instead of coming in as the key `undefined`
+- rdotjson 2.1.0 requires Node.js 20.19 or later, and parses with htmlparser2 instead of cheerio (a smaller browser bundle)
+
 ### 2.3.12
 
 - `js2asr`: backslashes are escaped, so a value with a backslash (a Windows path, a regex) reaches the app and survives a round trip unchanged. A value that holds a typed Android escape such as `\n` or `\u2605` is now written literally (`\\n`) and shows as such in the app; store the real character instead (a line break, ★) ([#5](https://github.com/locize/android-string-resource/pull/5), by [@Pharex38](https://github.com/Pharex38))
