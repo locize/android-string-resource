@@ -1,6 +1,7 @@
 ### 2.4.0
 
-- `asr2js`: update rdotjson to 2.1.0, which now decodes `\t` and `\uXXXX` and keeps non-breaking spaces itself ([kawanet/rdotjson#14](https://github.com/kawanet/rdotjson/pull/14)), so the workaround from 2.3.12 is gone; a non-breaking space written as `&#160;` is kept now too, and a `<string>` without a `name` attribute is skipped instead of coming in as the key `undefined`
+- `asr2js`: update rdotjson to 2.1.0, which now decodes `\t` and `\uXXXX` and keeps non-breaking spaces itself ([kawanet/rdotjson#14](https://github.com/kawanet/rdotjson/pull/14)), so the workaround from 2.3.12 is gone; a non-breaking space written as `&#160;` is kept now too, and a `<string>`, `<string-array>` or `<plurals>` without a `name` attribute is skipped instead of coming in under the key `undefined`
+- `asr2js`: fixes what the 2.3.12 workaround got wrong: a string-array item with attributes (e.g. `tools:ignore`) or a `name` holding `\t` or `\uXXXX` came in with private-use marker characters (U+E000, U+E001); comments keep `\t` and `\uXXXX` as written again (as before 2.3.12), so they survive a round trip through `js2asr`
 - rdotjson 2.1.0 requires Node.js 20.19 or later, and parses with htmlparser2 instead of cheerio (a smaller browser bundle)
 
 ### 2.3.12
